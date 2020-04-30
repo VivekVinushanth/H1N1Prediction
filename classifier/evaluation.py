@@ -30,11 +30,9 @@ def evaluate(classifier,y_predict,index):
     index.resize(26708,1)
     print(y_predict.shape)
     data = np.column_stack([index,y_predict])
-    label= ["respondent_id","seasonal_vaccine"]
+    label= ["respondent_id","h1n1_vaccine"]
     frame  = pd.DataFrame(data,columns=label)
-    export_csv = frame.to_csv(r'output/seasonal_vaccine.csv',header=True)
-
-
+    export_csv = frame.to_csv(r'output/h1n1_vaccine.csv',header=True)
 
 def XGBoost(X_train,y_train,X_test):
 
@@ -51,7 +49,7 @@ def XGBoost(X_train,y_train,X_test):
 
 
 # data transformation if necessary.
-X_t, y_t = pp('training_set_seasonal.csv')
+X_t, y_t = pp('training_set_h1n1.csv')
 
 # For Non-resampled
 X_train,y_train = X_t,y_t

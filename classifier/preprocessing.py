@@ -52,6 +52,12 @@ def pre_process(filename):
     columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(drop='first'), [47])], remainder='passthrough')
     X = np.array(columnTransformer.fit_transform(X), dtype=np.str)
 
+    columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(drop='first'), [51])], remainder='passthrough')
+    X = np.array(columnTransformer.fit_transform(X), dtype=np.str)
+
+    columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(drop='first'), [71])], remainder='passthrough')
+    X = np.array(columnTransformer.fit_transform(X), dtype=np.str)
+
     scaler = MinMaxScaler()
     X = scaler.fit_transform(X)
     return X,y
@@ -62,8 +68,6 @@ def getTest(filename):
 
     # Fill the NaN with mode
     df.fillna(df.mode().iloc[0], inplace=True)
-
-    # df = df.drop_duplicates(df.iloc[:, :-1].columns, keep='last')
 
     X = df.iloc[:, 1:].values
     index = np.asarray(df.iloc[:, 0].values)
@@ -98,6 +102,11 @@ def getTest(filename):
     columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(drop='first'), [47])], remainder='passthrough')
     X = np.array(columnTransformer.fit_transform(X), dtype=np.str)
 
+    columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(drop='first'), [51])], remainder='passthrough')
+    X = np.array(columnTransformer.fit_transform(X), dtype=np.str)
+
+    columnTransformer = ColumnTransformer([('encoder', OneHotEncoder(drop='first'), [71])], remainder='passthrough')
+    X = np.array(columnTransformer.fit_transform(X), dtype=np.str)
 
     scaler = MinMaxScaler()
     X = scaler.fit_transform(X)
